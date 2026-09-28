@@ -43,12 +43,13 @@ export function ProjectsSection() {
           ))}
         </div>
 
+        <h2 className="sr-only">Сайты</h2>
         <Stagger key={filter} aria-live="polite" className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-12">
-          {visibleProjects.map((project, index) => (
+          {visibleProjects.length > 0 ? visibleProjects.map((project, index) => (
             <StaggerItem key={project.id} className={cardLayouts[index % cardLayouts.length]}>
               <ProjectCard project={project} size={cardSizes[index % cardSizes.length]} />
             </StaggerItem>
-          ))}
+          )) : <p role="status" className="col-span-full border border-dashed border-white/15 p-6 text-sm text-[var(--muted)]">В этой категории пока нет опубликованных проектов.</p>}
         </Stagger>
       </div>
     </section>

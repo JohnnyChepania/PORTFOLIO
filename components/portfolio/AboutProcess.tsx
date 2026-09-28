@@ -1,4 +1,4 @@
-import { ArrowRight, Check, Compass, Flask, Rocket, Steps } from "@phosphor-icons/react";
+import { ArrowRight, Compass, Flask, Rocket, Steps } from "@phosphor-icons/react";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
 const steps = [["Разбираюсь в задаче", Compass], ["Прорабатываю структуру", Steps], ["Собираю интерфейс", Flask], ["Тестирую и запускаю", Rocket]] as const;

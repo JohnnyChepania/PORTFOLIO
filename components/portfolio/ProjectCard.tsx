@@ -46,7 +46,7 @@ export function ProjectCard({ project, size = "small" }: ProjectCardProps) {
       className={`project-card group relative flex cursor-pointer flex-col overflow-hidden rounded-[1.5rem] border border-white/10 bg-[var(--panel)] transition-colors duration-300 hover:border-white/30 ${sizeClass}`}
     >
       <div className="absolute inset-0 overflow-hidden">
-        <img src={project.image} alt={`Превью проекта ${project.title}`} className="size-full object-cover opacity-65 grayscale transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-85" />
+        <img src={project.image} alt={project.alt} loading="lazy" className="size-full object-cover opacity-65 grayscale transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105 group-hover:grayscale-0 group-hover:opacity-85" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c0b] via-[#0b0c0b]/25 to-transparent" />
       </div>
 

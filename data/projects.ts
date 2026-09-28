@@ -10,6 +10,7 @@ export type Project = {
   url: string;
   github?: string;
   image: string;
+  alt: string;
   status: "live" | "concept" | "demo";
   featured?: boolean;
 };
@@ -20,10 +21,11 @@ export const projects: Project[] = [
     title: "VANTA ATHLETICS",
     category: "Web",
     subcategory: "Landing",
-    description: "Премиальный сайт фитнес-клуба с акцентом на визуальный стиль, структуру услуг и конверсионные сценарии.",
+    description: "Премиальный сайт фитнес-клуба, разработанный на Next.js.",
     stack: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
     url: "https://vanta-athletics-johnny-chepania.vercel.app/",
     image: "https://picsum.photos/seed/vanta-athletics/1400/920",
+    alt: "Превью сайта VANTA ATHLETICS",
     status: "live",
     featured: true,
   },
@@ -32,10 +34,11 @@ export const projects: Project[] = [
     title: "AURELIA RESIDENCES",
     category: "Web",
     subcategory: "Real Estate / Landing",
-    description: "Премиальный сайт жилого проекта с акцентом на презентацию объекта и визуальную иерархию.",
+    description: "Сайт жилого проекта с акцентом на презентацию недвижимости.",
     stack: ["Tilda"],
     url: "https://aurelia-residences-iota.vercel.app/",
     image: "https://picsum.photos/seed/aurelia-residences/1200/1000",
+    alt: "Превью сайта AURELIA RESIDENCES",
     status: "live",
     featured: true,
   },
@@ -44,10 +47,11 @@ export const projects: Project[] = [
     title: "NEXA AI",
     category: "AI",
     subcategory: "Landing",
-    description: "Концептуальный сайт AI-продукта с современным digital-интерфейсом.",
+    description: "Концептуальный сайт AI-продукта, созданный во Framer.",
     stack: ["Framer"],
     url: "https://heavenly-project-184875.framer.app/",
     image: "https://picsum.photos/seed/nexa-ai/1200/900",
+    alt: "Превью сайта NEXA AI",
     status: "concept",
     featured: true,
   },
@@ -56,24 +60,13 @@ export const projects: Project[] = [
     title: "NEXORA",
     category: "SaaS",
     subcategory: "Web App",
-    description: "SaaS-интерфейс для управления задачами, командной работой, AI и автоматизацией.",
+    description: "SaaS-платформа для задач, командной работы, AI и автоматизации.",
     stack: ["Next.js", "TypeScript", "Tailwind", "Motion"],
     url: "https://nexora-lilac-iota.vercel.app/",
     github: "https://github.com/JohnnyChepania/NEXORA",
     image: "https://picsum.photos/seed/nexora-dashboard/1400/960",
+    alt: "Превью SaaS-интерфейса NEXORA",
     status: "live",
-    featured: true,
-  },
-  {
-    id: "lumea-clinic",
-    title: "LUMÉA CLINIC",
-    category: "UI/UX",
-    subcategory: "Healthcare / Website",
-    description: "Концепт premium-сайта клиники эстетической косметологии.",
-    stack: ["Wix"],
-    url: "https://valeramasiuta.wixsite.com/a-clinic",
-    image: "https://picsum.photos/seed/lumea-clinic/1200/1000",
-    status: "concept",
     featured: true,
   },
   {
@@ -85,16 +78,17 @@ export const projects: Project[] = [
     stack: ["Telegram", "Automation"],
     url: "https://t.me/clientradar_jobs_bot",
     image: "https://picsum.photos/seed/clientradar-bot/1200/900",
+    alt: "Telegram-бот ClientRadar",
     status: "demo",
   },
 ];
 
 export const futureProjects: Project[] = [
-  { id: "goal-planner", title: "GOAL PLANNER BOT", category: "Bots", subcategory: "Telegram", description: "Будущий бот для планирования целей и регулярных действий.", stack: ["Telegram", "AI"], url: "#", image: "https://picsum.photos/seed/goal-planner/800/600", status: "concept" },
-  { id: "ai-bot", title: "AI BOT", category: "AI", subcategory: "Assistant", description: "Будущий интерфейс для локального AI-помощника.", stack: ["AI", "Web App"], url: "#", image: "https://picsum.photos/seed/ai-bot/800/600", status: "concept" },
-  { id: "parser-bot", title: "PARSER BOT", category: "Automation", subcategory: "Telegram", description: "Будущий бот для сбора и структурирования данных.", stack: ["Telegram", "Parser"], url: "#", image: "https://picsum.photos/seed/parser-bot/800/600", status: "concept" },
-  { id: "content-automation", title: "CONTENT AUTOMATION", category: "Automation", subcategory: "Workflow", description: "Будущая система для ускорения контентных процессов.", stack: ["AI", "Automation"], url: "#", image: "https://picsum.photos/seed/content-automation/800/600", status: "concept" },
-  { id: "lead-bot", title: "LEAD BOT", category: "Bots", subcategory: "Telegram", description: "Будущий бот для первичной квалификации обращений.", stack: ["Telegram", "CRM"], url: "#", image: "https://picsum.photos/seed/lead-bot/800/600", status: "concept" },
+  { id: "goal-planner", title: "GOAL PLANNER BOT", category: "Bots", subcategory: "Telegram", description: "Будущий бот для планирования целей и регулярных действий.", stack: ["Telegram", "AI"], url: "#", image: "https://picsum.photos/seed/goal-planner/800/600", alt: "Концепт Telegram-бота Goal Planner", status: "concept" },
+  { id: "ai-bot", title: "AI BOT", category: "AI", subcategory: "Assistant", description: "Будущий интерфейс для локального AI-помощника.", stack: ["AI", "Web App"], url: "#", image: "https://picsum.photos/seed/ai-bot/800/600", alt: "Концепт AI-инструмента", status: "concept" },
+  { id: "parser-bot", title: "PARSER BOT", category: "Automation", subcategory: "Telegram", description: "Будущий бот для сбора и структурирования данных.", stack: ["Telegram", "Parser"], url: "#", image: "https://picsum.photos/seed/parser-bot/800/600", alt: "Концепт Telegram Parser Bot", status: "concept" },
+  { id: "content-automation", title: "CONTENT AUTOMATION", category: "Automation", subcategory: "Workflow", description: "Будущая система для ускорения контентных процессов.", stack: ["AI", "Automation"], url: "#", image: "https://picsum.photos/seed/content-automation/800/600", alt: "Концепт системы автоматизации контента", status: "concept" },
+  { id: "lead-bot", title: "LEAD BOT", category: "Bots", subcategory: "Telegram", description: "Будущий бот для первичной квалификации обращений.", stack: ["Telegram", "CRM"], url: "#", image: "https://picsum.photos/seed/lead-bot/800/600", alt: "Концепт Telegram Lead Bot", status: "concept" },
 ];
 
 export const allProjects = [...projects, ...futureProjects];
