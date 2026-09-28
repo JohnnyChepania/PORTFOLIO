@@ -24,7 +24,7 @@ export function Header() {
         <nav className="hidden items-center gap-1 lg:flex">
           {links.map((link) => <a key={link.href} href={link.href} className="rounded-full px-3 py-2 text-xs text-[var(--muted)] transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-white/5 hover:text-white">{link.label}</a>)}
         </nav>
-        <div className="hidden lg:block"><MagneticButton href="#contact" variant="ghost">Связаться</MagneticButton></div>
+        <div className="hidden lg:block"><MagneticButton href="https://t.me/valery_masiuta" variant="ghost">Связаться</MagneticButton></div>
         <button type="button" aria-label={open ? "Закрыть меню" : "Открыть меню"} onClick={() => setOpen(!open)} className="relative flex size-11 items-center justify-center rounded-full border border-white/10 lg:hidden">
           <AnimatePresence mode="wait" initial={false}>{open ? <motion.span key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }}><X size={20} /></motion.span> : <motion.span key="list" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }}><List size={20} /></motion.span>}</AnimatePresence>
         </button>

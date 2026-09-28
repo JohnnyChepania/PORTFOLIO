@@ -1,3 +1,4 @@
+@import "@fontsource-variable/manrope/index.css";
 @import "tailwindcss";
 
 :root {
@@ -15,7 +16,9 @@
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; background: var(--ink); }
-body { margin: 0; background: var(--ink); color: var(--text); font-family: var(--font-display), system-ui, sans-serif; overflow-x: hidden; }
+body { margin: 0; background: var(--ink); color: var(--text); font-family: "Manrope Variable", Manrope, system-ui, sans-serif; overflow-x: hidden; }
+
+button, input, textarea, select { font: inherit; }
 a { color: inherit; text-decoration: none; }
 button, a { -webkit-tap-highlight-color: transparent; }
 ::selection { background: var(--accent); color: var(--ink); }
@@ -27,7 +30,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .section-wrap { width: min(100% - 40px, 1400px); margin-inline: auto; }
 .section-space { padding-block: clamp(6rem, 11vw, 10rem); }
 .eyebrow { color: var(--accent); font-family: var(--font-mono), monospace; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
-.display { letter-spacing: -.07em; line-height: .94; }
+.display { letter-spacing: -.07em; line-height: 1.1; overflow: visible; }
 .mono { font-family: var(--font-mono), monospace; }
 
 @media (max-width: 767px) {
