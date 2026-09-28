@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight, ChatCircleDots, PaperPlaneTilt, X } from "@phosphor-icons/react";
+import { ArrowUpRight, PaperPlaneTilt, X } from "@phosphor-icons/react";
 import { AnimatePresence, motion } from "motion/react";
 import { useState } from "react";
 import { getAssistantReply } from "@/lib/assistant";
@@ -38,7 +38,7 @@ export function PortfolioAssistant() {
         onClick={() => setOpen(true)}
         className="fixed bottom-5 right-5 z-20 flex items-center gap-2 rounded-full border border-[#d8d7d1] bg-[#f1f0ea] px-4 py-3 text-sm font-semibold text-[#111311] shadow-[0_12px_40px_rgba(0,0,0,.22)]"
       >
-        <ChatCircleDots size={18} weight="bold" /> AI-помощник
+        <span aria-hidden="true">✦</span> AI-помощник
       </motion.button>
 
       <AnimatePresence>

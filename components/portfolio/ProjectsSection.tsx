@@ -2,23 +2,54 @@
 
 import { useMemo, useState } from "react";
 import { Funnel } from "@phosphor-icons/react";
-import { allProjects, ProjectCategory } from "@/data/projects";
+import { projects, ProjectCategory } from "@/data/projects";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { Reveal, Stagger, StaggerItem } from "@/components/ui/Reveal";
 
-const filters: Array<"Все" | ProjectCategory> = ["Все", "Web", "SaaS", "AI", "UI/UX", "Bots", "Automation"];
+const filters: Array<{ value: "Все" | ProjectCategory; label: string }> = [
+  { value: "Все", label: "ВСЕ" },
+  { value: "Web", label: "САЙТЫ" },
+  { value: "SaaS", label: "SAAS" },
+  { value: "AI", label: "AI" },
+  { value: "UI/UX", label: "UI/UX" },
+  { value: "Bots", label: "БОТЫ" },
+  { value: "Automation", label: "АВТОМАТИЗАЦИЯ" },
+];
+
+const cardLayouts = ["lg:col-span-7", "lg:col-span-5 lg:mt-20", "lg:col-span-5", "lg:col-span-7", "lg:col-span-5 lg:mt-16", "lg:col-span-7"];
+const cardSizes = ["large", "medium", "medium", "large", "small", "medium"] as const;
 
 export function ProjectsSection() {
   const [filter, setFilter] = useState<"Все" | ProjectCategory>("Все");
-  const visibleProjects = useMemo(() => filter === "Все" ? allProjects : allProjects.filter((project) => project.category === filter), [filter]);
+  const visibleProjects = useMemo(() => filter === "Все" ? projects : projects.filter((project) => project.category === filter), [filter]);
+
   return (
-    <section id="projects" aria-labelledby="projects-heading" className="section-space">
+    <section id="projects" aria-labelledby="projects-heading" className="section-space pt-32 md:pt-36">
       <div className="section-wrap">
-        <Reveal><div className="max-w-2xl"><p className="eyebrow">Selected work</p><h2 id="projects-heading" className="display mt-5 text-5xl font-semibold md:text-7xl">Избранные проекты</h2><p className="mt-6 text-base leading-7 text-[var(--muted)]">Несколько проектов, которые лучше всего показывают мой подход к дизайну и разработке.</p></div></Reveal>
-        {filter === "Все" && <Stagger className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-12"><StaggerItem className="lg:col-span-7"><ProjectCard project={allProjects[0]} featured /></StaggerItem><StaggerItem className="lg:col-span-5 lg:mt-24"><ProjectCard project={allProjects[3]} featured /></StaggerItem><StaggerItem className="lg:col-span-5"><ProjectCard project={allProjects[1]} /></StaggerItem><StaggerItem className="lg:col-span-7"><ProjectCard project={allProjects[2]} /></StaggerItem></Stagger>}
-        <Reveal><div className="mt-32 flex flex-col justify-between gap-7 border-t border-white/10 pt-8 md:flex-row md:items-end"><div><p className="eyebrow">Archive</p><h2 className="display mt-4 text-4xl font-semibold md:text-6xl">Все проекты</h2></div><div className="flex items-center gap-2 text-xs text-[var(--muted)]"><Funnel size={15} /> фильтр по направлению</div></div></Reveal>
-        <div className="mt-8 flex flex-wrap gap-2">{filters.map((item) => <button key={item} type="button" aria-pressed={filter === item} onClick={() => setFilter(item)} className={`rounded-full border px-4 py-2 text-xs transition duration-500 ease-[cubic-bezier(0.32,0.72,0,1)] ${filter === item ? "border-[#f1f0ea] bg-[#f1f0ea] text-[#111311]" : "border-white/10 text-[var(--muted)] hover:border-white/25 hover:text-white"}`}>{item}</button>)}</div>
-        <div key={filter} aria-live="polite" className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3">{visibleProjects.map((project) => <ProjectCard key={project.id} project={project} />)}</div>
+        <Reveal>
+          <div className="max-w-3xl">
+            <p className="eyebrow">ПОРТФОЛИО / 2026</p>
+            <h1 id="projects-heading" className="display mt-5 text-5xl font-semibold uppercase sm:text-6xl md:text-8xl">Мои проекты</h1>
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[var(--muted)] md:text-lg">Сайты, интерфейсы, SaaS, AI-инструменты, Telegram-боты и автоматизация.</p>
+          </div>
+        </Reveal>
+
+        <div className="mt-12 flex flex-wrap items-center gap-2 border-y border-white/10 py-4">
+          <Funnel size={16} className="mr-2 text-[var(--accent)]" />
+          {filters.map((item) => (
+            <button key={item.value} type="button" aria-pressed={filter === item.value} onClick={() => setFilter(item.value)} className={`rounded-full border px-4 py-2 text-[11px] font-semibold tracking-[.08em] transition duration-300 ${filter === item.value ? "border-[#f1f0ea] bg-[#f1f0ea] text-[#111311]" : "border-white/10 text-[var(--muted)] hover:border-white/30 hover:text-white"}`}>
+              {item.label}
+            </button>
+          ))}
+        </div>
+
+        <Stagger key={filter} aria-live="polite" className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-12">
+          {visibleProjects.map((project, index) => (
+            <StaggerItem key={project.id} className={cardLayouts[index % cardLayouts.length]}>
+              <ProjectCard project={project} size={cardSizes[index % cardSizes.length]} />
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   );
